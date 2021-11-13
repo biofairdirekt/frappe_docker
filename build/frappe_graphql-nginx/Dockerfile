@@ -9,7 +9,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY build/frappe_graphql-nginx/install_app.sh /install_app
-
 RUN chmod +x /install_app && /install_app frappe_graphql https://github.com/leam-tech/frappe_graphql master version-13
 
 FROM frappe/erpnext-nginx:v13.14.1
