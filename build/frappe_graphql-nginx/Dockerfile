@@ -2,7 +2,7 @@ FROM bitnami/node:12-prod
 
 COPY build/frappe_graphql-nginx/install_app.sh /install_app
 
-RUN /install_app frappe_graphql https://github.com/leam-tech/frappe_graphql
+RUN install_app frappe_graphql https://github.com/leam-tech/frappe_graphql
 
 FROM frappe/erpnext-nginx:edge
 
