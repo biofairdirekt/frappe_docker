@@ -2,9 +2,9 @@ FROM bitnami/node:12-prod
 
 COPY build/frappe_graphql-nginx/install_app.sh /install_app
 
-RUN install_app frappe_graphql https://github.com/leam-tech/frappe_graphql
+RUN chmod +x /install_app && /install_app frappe_graphql https://github.com/leam-tech/frappe_graphql
 
-FROM frappe/erpnext-nginx:edge
+FROM frappe/erpnext-nginx:v13.14.1
 
 COPY --from=0 /home/frappe/frappe-bench/sites/ /var/www/html/
 COPY --from=0 /rsync /rsync
